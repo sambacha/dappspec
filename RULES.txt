@@ -1,0 +1,40 @@
+
+/// SPDX-License-Identifier: SSPL-1.0
+pragma solidity >=0.8.13 <0.9.0;
+
+/*! Dappspec Directive */
+
+    /// @custom:gas Uint256 zero check gas saver
+    /// @notice Uint256 zero check gas saver
+    /// @param value Number to check
+    function _isZero(uint256 value) internal pure returns (bool boolValue) {
+        assembly {
+            boolValue := iszero(value)
+        }
+    }
+
+
+
+        /// @custom:emit MEV success
+        emit MEV(msg.sender, output, optimalReturns - ((amountIn * 9) / 10000));
+    } catch {
+        /// @custom:emit MEV fail optimalReturns
+        emit LoanError(output, amountIn);
+    }
+
+
+/// @custom:errors Custom errors save gas, encoding to 4 bytes
+    error Expired();
+    error NoTokens();
+    error NotPercent();
+    error NoReceivers();
+    error InvalidPath();
+    error TransferFailed();
+    error InsufficientBAmount();
+    error InsufficientAAmount();
+    error TokenIsFeeOnTransfer();
+    error ExcessiveInputAmount();
+    error ExecuteNotAuthorized();
+    error InsufficientAllowance();
+    error InsufficientLiquidity();
+    error InsufficientOutputAmount();
