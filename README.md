@@ -1,5 +1,16 @@
 # dappspec
 
+> Admonitions as @custom:tags
+
+## Motivation
+
+Dappspec takes the `@custom:...` natspec tag and provides a list of admonitions for generating documentation for Solidity contracts.
+
+- The Specifics Admonitions include identifiers for codeblocks that reference `gas` optimizations, `assembly` blocks, and `emit` events.
+
+- The `@custom:security` tag as used by OpenZeppelin for identifiying the point of contact. Similar to `security.txt`, [see an example here](https://www.manifoldfinance.com/.well-known/security.txt)
+
+- The General Admonitions are meant to render the docstring content as a code block that you would find in generators like `mkdocs`. [see squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types)
 
 
 ## Admonitions
@@ -13,9 +24,14 @@
 -    gas
 -    assembly
 -    emit 
+-    security
 
 
-### md-code-hl
+### Colouring Tokens
+
+> md-code-hl
+
+<pre>
 number-color
 special-color
 function-color
@@ -28,6 +44,11 @@ punctuation-color
 comment-color
 generic-color
 variable-color
+</pre>
+
+## Examples
+
+### `@custom:emit` 
 
 ```solidity
 // try / catch flashloan arb. In case arb reverts, user swap will still succeed.
@@ -39,6 +60,7 @@ try bento.flashLoan(IFlashBorrower(address(this)), address(this), output, amount
     emit LoanError(output, amountIn);
 ```
 
+### `@custom:gas` 
 
 ```solidity
     /// @custom:gas Uint256 zero check gas saver
