@@ -1,3 +1,10 @@
+---
+title: DAppSpec
+version: v2022.06.26
+authors: <TBD>
+license: CC-SA-2.5
+---
+
 # dappspec
 
 > Admonitions as @custom:tags
@@ -12,6 +19,18 @@ Dappspec takes the `@custom:...` natspec tag and provides a list of admonitions 
 
 - The General Admonitions are meant to render the docstring content as a code block that you would find in generators like `mkdocs`. [see squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types)
 
+## Anchors
+
+Support for modline anchors:
+
+`#:~:text=`
+
+```
+#:~:text=A%20NatSpec%20Comment.
+```
+
+[see web.dev/text-fragments/](https://web.dev/text-fragments/)
+[see github.com/GoogleChromeLabs/link-to-text-fragment](https://github.com/GoogleChromeLabs/link-to-text-fragment)
 
 ## Admonitions
 
