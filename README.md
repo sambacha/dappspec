@@ -129,11 +129,49 @@ try bento.flashLoan(IFlashBorrower(address(this)), address(this), output, amount
     }
 ```
 
-#### ascidoc format
+`
 
-```adoc
+#### other formats
+
+```javascript
      /**
      * NOTE:xref:learn::upgrading-smart-contracts.adoc[smart contract upgrade].
      */
      
 ```
+    
+```solidity
+    /**
+    * @custom:oz-upgrades-unsafe-allow state-variable-immutable
+    */
+```
+    
+#### modline
+    
+```shell
+# -*- nginx -*-
+```
+<br />
+    
+```shell
+# .gitattributes
+conf.d linguist-language=Nginx
+```
+
+> ```nginx
+> # -*- nginx -*-
+> server {
+> 	listen 8002;
+> 	server_name homepage;
+> 	root /home/ollien.com/www/;
+> 	charset utf-8;
+> 
+> 	location / {}
+> 
+> 	location /index.html {}
+> 
+> 	location /static {
+> 		autoindex off;
+> 	}
+> }
+> ``
