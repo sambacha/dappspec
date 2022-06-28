@@ -34,6 +34,20 @@ Support for modline anchors:
 
 ## Admonitions
 
+- French
+
+<pre>
+:::note{label="Il ne faut rien laisser au hasard."}
+Battre le fer pendant qu’il est chaud.
+:::
+</pre>
+
+> **Warning** <br />
+> GitHub Warning
+
+> **Note** <br />
+> GitHub Note
+
 ### General
 - check
 - important
@@ -99,4 +113,27 @@ try bento.flashLoan(IFlashBorrower(address(this)), address(this), output, amount
             boolValue := iszero(iszero(value))
         }
     }
+```
+
+#### OpenZeppelin Style
+
+```solidity
+    
+    abstract contract ERC2771Context is Context {
+    /// @custom:oz-upgrades-unsafe-allow state-variable-immutable
+    address private immutable _trustedForwarder;
+
+    /// @custom:oz-upgrades-unsafe-allow constructor
+    constructor(address trustedForwarder) {
+        _trustedForwarder = trustedForwarder;
+    }
+```
+
+#### ascidoc format
+
+```adoc
+     /**
+     * NOTE:xref:learn::upgrading-smart-contracts.adoc[smart contract upgrade].
+     */
+     
 ```
