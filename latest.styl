@@ -1,0 +1,639 @@
+contentWidth = 760px
+
+vendor(prop, args)
+  -webkit-{prop} args
+  -moz-{prop} args
+  -o-{prop} args
+  -ms-{prop} args
+  {prop} args
+
+transition()
+  vendor('transition', arguments)
+
+transition-duration()
+  vendor('transition-duration', arguments)
+
+transition-property()
+  vendor('transition-property', arguments)
+
+transform()
+  vendor('transform', arguments)
+
+border-bottom-left-radius()
+  vendor('border-bottom-left-radius', arguments)
+
+box-sizing()
+  vendor('box-sizing', arguments)
+
+box-shadow()
+  vendor('box-shadow', arguments)
+
+border-radius()
+  vendor('border-radius', arguments)
+
+tab-size()
+  vendor('tab-size', arguments)
+
+background-linear-gradient()
+  background -webkit-linear-gradient(arguments)
+  background -moz-linear-gradient(arguments)
+  background -o-linear-gradient(arguments)
+  background -ms-linear-gradient(arguments)
+  background linear-gradient(arguments)
+
+
+/*
+ * # Document style
+ */
+
+html, body
+  height 100%
+
+body
+  background-color #f2f2ff
+  min-width 460px
+  -webkit-text-size-adjust 100%
+  color #333
+  font-size 15px
+  position relative
+  height auto
+  margin 0
+  padding 8px
+  min-height 100%
+
+#document
+  min-height 100%
+  display inline-block
+  padding-right 0.5em
+  width 100%
+  font-family "Helvetica Neue", Helvetica, "Droid Sans", sans-serif
+  margin-left -8px
+
+  &.commentsonly
+    margin-left 0
+
+  &.codedoc > .segment
+    & > .comments
+      padding 0 1em 0 0.3em
+    & > .comments > .wrapper
+      padding 0 4px 0 22px
+    & > .comments > .wrapper > :first-child
+      margin-top 7px
+    & > .comments > .wrapper > :last-child
+      margin-bottom 12px
+
+    &:hover
+      border-top 1px dotted silver
+      border-bottom 1px dotted silver
+      margin-top -1px
+      margin-bottom -1px
+
+#meta
+  float left
+  padding 0 0em .5em 1.4em
+  color brown
+  font-size 13px
+  font-family "Helvetica Neue", Helvetica, "Droid Sans", sans-serif
+  width 36%
+  word-wrap break-word
+  border-bottom 1px dotted silver
+  margin-left -8px
+  .file-path
+    padding 0 1.4em 0 0.8em
+
+  &.commentsonly
+    border-bottom 0
+    padding .25em 1em .5em 2.5em
+    max-width contentWidth
+    margin 0 auto
+    width 97%
+    float none
+
+#bg
+  position absolute
+  width 36%
+  min-width 180px
+  background-color white
+  box-shadow 1px 1px 15px #cbcbcb
+  padding 0 1em 0 0.3em
+  top 0
+  left 0
+  bottom 0
+  overflow hidden
+  z-index -1
+  margin -8px
+
+#footer
+  font-family "Helvetica Neue", Helvetica, "Droid Sans", sans-serif
+  padding 2px 0.4em 0 1.3em
+  font-size 11px
+  font-style italic
+  color silver
+  text-align right
+  float left
+  width 36%
+  border-top 1px dotted
+  & > a
+    padding-right 1em
+
+  a
+    color silver
+    text-decoration none
+    &:hover
+      text-decoration underline
+
+  &.commentsonly
+    max-width contentWidth
+    margin 0 auto
+    color #A0A0A0
+    width auto
+    float none
+    border-top 0
+    padding-top 0
+    a
+      color #A0A0A0
+
+
+/*
+ * # Navigation
+ */
+
+nav
+  position fixed
+  top 0
+  right 0
+  width 20em
+  margin 0
+  padding 0
+  z-index 1000
+  transition height 0 150ms
+  text-shadow #f0f0f0 1px 1px 0
+  color #4a525a
+  font-size 16px
+
+  ol, ul
+    margin 0
+    padding 0
+
+  .tools, .toc
+    font-family "Helvetica Neue", Helvetica, "Droid Sans", sans-serif
+    font-weight 300
+    font-size 0.938em
+    line-height 1.35
+    border-left-width 0
+
+  .tools
+    position relative
+    z-index 100
+    box-shadow rgba(0,0,0,0.3) 0 0 0.5em 0.1em
+    background -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255,255,255,0.9)), color-stop(100%, rgba(205,205,205,0.9)))
+    background-linear-gradient(top, rgba(255,255,255,0.9),rgba(205,205,205,0.9))
+    border-bottom-left-radius 0.4em
+    border-bottom 1px solid #4a525a
+    border-left 1px solid #4a525a
+    background -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #cdcdcd))
+    background-linear-gradient(top, #ffffff,#cdcdcd)
+
+    li
+      display table-cell
+      vertical-align middle
+      text-align center
+      white-space nowrap
+      height 2.1em
+      padding 0 0.55em
+      border-right 1px solid #4a525a
+      &:last-child
+        border-right none
+
+    .github
+      padding 0
+      a
+        display block
+        height 2.1em
+        width 2.1em
+        text-indent -9001em
+        transition opacity 200ms
+        filter unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=50)")
+        opacity 0.5
+        background url("github-icon.png") center center no-repeat
+        background-size 19.5px 24px
+        &:hover
+          filter unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=90)")
+          opacity 0.9
+
+    .search
+      width 100%
+      input
+        box-sizing border-box
+        display block
+        width 100%
+
+    .toggle
+      transition background 150ms
+      cursor pointer
+
+  .toc
+    box-sizing border-box
+    position absolute
+    top 2.1em
+    bottom 0
+    width 100%
+    overflow-x hidden
+    overflow-y auto
+    transition left 150ms
+    right auto
+    left 100%
+    box-shadow rgba(0,0,0,0.3) 0 0 0.5em 0.1em
+    background rgba(230,230,230,0.9)
+    border-left 1px solid #4a525a
+    background #e6e6e6
+
+    .children, .outline
+      display none
+
+    li
+      position relative
+      display block
+      li
+        .label
+          padding-left 1.1em
+        li
+          .label
+            padding-left 1.65em
+          li
+            .label
+              padding-left 2.2em
+            li
+              .label
+                padding-left 2.75em
+              li
+                .label
+                  padding-left 3.3em
+
+    .label
+      display block
+      line-height 2em
+      padding 0 0.55em 0 0.55em
+      color #4a525a
+      text-decoration none
+      border-top 1px solid rgba(192,192,192,0.9)
+      border-bottom 1px solid rgba(192,192,192,0.9)
+      margin-top -1px
+      &:hover
+        background rgba(205,205,205,0.9)
+      em
+        font-weight bold
+        font-style normal
+
+    .discloser
+      transition-property -moz-transform -webkit-transform -o-transform transform
+      transition-duration 200ms
+      transform rotate(0deg)
+      display inline-block
+      height 9px
+      width 9px
+      padding 0.2em
+      margin 0.2em 0.2em -0.2em 0.2em
+      vertical-align baseline
+      background url("disclosure-indicator.png") center center no-repeat
+      background-size 9px 9px
+
+    .discloser.placeholder
+      background none
+
+    .expanded
+      & > .label
+        .discloser
+          transform rotate(90deg)
+      & > .children, & > .outline, > .outline .children
+        display block
+      & > .outline .discloser
+        background none
+
+    .filtered
+      & > .label
+        display none
+
+    .matched-child
+      & > .label
+        display block
+        filter unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=65)")
+        opacity 0.65
+        background: rgba(192,192,192,0.9)
+        text-shadow none
+      & > .children, & > .outline, & > .outline .children
+        display block
+
+    .matched
+      & > .children, & > .outline, & > .outline .children
+        display block
+
+    .selected
+      & > .label
+        background #f5fbff
+
+    .file
+      & > .label
+        em
+          color #101214
+
+    .folder
+      & > .label
+        & > .text
+          background url("folder-icon.png") top left no-repeat
+          padding-left 20px
+
+    .file-folder
+      & > .label
+        & > .text
+          background url("file-folder-icon.png") top left no-repeat
+          padding-left 20px
+
+    .heading
+      & > .label
+        & > .text
+          font-size 0.88em
+          color #707070
+
+  &.active
+    transition height 0 0
+    height 100%
+    .toc
+      right 0
+      left 0
+    .tools
+      border-bottom-left-radius 0
+      .toggle
+        background rgba(205,205,205,0.9)
+        position relative
+
+  &.searching
+    .toc
+      .discloser
+        display none
+
+  input[type="search"]
+    border-radius 1em
+    box-shadow #ddd 0 1px 1px 0 inset
+    border 1px solid #959595
+    padding 0.15em 0.8em
+    -webkit-appearance none
+    outline 0
+    &:focus
+      border-color #339933
+
+
+a
+  word-wrap break-word
+  color #4183C4
+  text-decoration: none
+  &:hover
+    text-decoration underline
+
+/*
+ * # Markdown
+ */
+
+h1
+  font-size 2.5em
+  border-bottom 1px solid #DDD
+
+h2
+  font-size 2em
+  border-bottom 1px solid #EEE
+
+h3
+  font-size 1.5em
+
+h4
+  font-size 1.2em
+
+h5
+  font-size 1em
+
+h6
+  font-size 1em
+  color #777
+
+h1, h2, h3, h4, h5, h6
+  margin 1em 0 15px 0
+  padding 0
+  font-weight bold
+  position relative
+
+  &:hover > a.anchor > span
+    display block
+
+a.anchor
+  top 0
+  left 0
+  bottom 0
+  position absolute
+  padding-left 30px
+  margin-left -30px
+  outline none
+  & > span
+    padding-left 30px
+    margin-left -30px
+    position absolute
+    top 0
+    bottom 0
+    right 0
+    background url("link-icon.png") no-repeat 10px center
+    display none
+
+em, i
+  font-style italic
+
+p, blockquote, ul, ol, dl, table, pre
+  margin 15px 0
+
+ol, ul
+  padding-left 30px
+
+.segment
+  .comments
+    position relative
+    float left
+    height 100%
+    width 36%
+    padding 0 1em 0 1em
+    z-index 998
+    line-height 1.7
+
+    .wrapper
+      padding 0 20px
+      word-wrap break-word
+    .toc
+      padding 1em
+      border 1px solid #DDD
+      border-radius 3px
+      background #FAF6FF
+    & > *
+      overflow hidden
+    code, tt
+      font-family Consolas, "Liberation Mono", Courier, monospace
+      font-size 12px
+      margin 0 2px
+      padding 0 5px
+      border 1px solid #DDD
+      border-radius 3px
+      background-color #F8F8F8
+      display inline-block
+    pre
+      font-family Consolas, "Liberation Mono", Courier, monospace
+      font-size 12px
+      border 1px solid #DDD
+      overflow auto
+      padding 6px 10px
+      border-radius 3px
+      background-color #F8F8F8
+      line-height 19px
+      code
+        overflow auto
+        background transparent
+        margin 0
+        padding 0
+        border none
+        &.brief, & span.brief
+          white-space normal
+          display block
+    blockquote
+      border-left 4px solid #dddddd
+      padding 0 15px
+      color #777777
+      & > :first-child
+        margin-top 0
+      & > :last-child
+        margin-bottom 0
+    table
+      overflow auto
+      border-collapse collapse
+      border-spacing 0
+      padding 0
+      tr
+        border-top 1px solid #cccccc
+        background-color white
+        margin 0
+        padding 0
+        &:nth-child(2n)
+          background-color #f8f8f8
+        th
+          font-weight bold
+          border 1px solid #cccccc
+          text-align center
+          margin 0
+          padding 6px 13px
+        td
+          border 1px solid #cccccc
+          text-align left
+          margin 0
+          padding 6px 13px
+        & th :first-child, & td :first-child
+          margin-top 0
+        & th :last-child, & td :last-child
+          margin-bottom 0
+    dl
+      padding 0
+      dt
+        font-size 14px
+        font-weight bold
+        font-style italic
+        padding 0
+        margin 15px 0 5px
+        &:first-child
+          padding 0
+        & > :first-child
+          margin-top 0
+        & > :last-child
+          margin-bottom 0
+      dd
+        margin-left 0
+        padding 0 15px
+        & > :first-child
+          margin-top 0
+        & > :last-child
+          margin-bottom 0
+
+  &.nocomment
+    .comments
+      margin 1px 0
+
+  .commentsonly
+    width auto
+    max-width contentWidth
+    float none
+    padding 1em 1em 1em 1em
+    background-color white
+    border-radius 6px
+    box-shadow 1px 1px 15px #cbcbcb
+    margin 0.5em auto 4px auto
+    & > .wrapper > :first-child
+      margin-top 12px
+
+  .code
+    float left
+    height 100%
+    width 46%
+    font-family Consolas, "Liberation Mono", Courier, monospace
+    font-size 14px
+    white-space pre
+    padding 12px 1em 12px 1.2em
+    .wrapper
+      display inline-block
+      margin-right 1em
+
+  hr
+    background transparent url("dirty-shade.png") repeat-x 0 0
+    border 0 none
+    color #cccccc
+    height 4px
+    padding 0
+
+
+.segment, #segment-footer
+  position relative
+  page-break-inside avoid
+  text-rendering optimizeLegibility
+  float left
+  width 100%
+
+
+/*
+ * # Syntax Highlighting
+ */
+
+.code, code
+  tab-size 2
+
+  .comment, .template_comment, .diff .header, .doctype, .pi, .lisp .string, .javadoc
+    color #93a1a1
+    font-style italic
+
+  .keyword, .winutils, .method, .addition, .css .tag, .request, .status, .nginx .title
+    color #859900
+
+  .number, .command, .string, .tag .value, .phpdoc, .tex .formula, .hexcolor
+    color #2aa198
+
+ .regexp
+    color #C343EB
+
+  .title, .localvars, .chunk, .decorator, .built_in, .identifier, .vhdl .literal, .literal, .id
+    color #268bd2
+
+  .attribute, .variable, .lisp .body, .smalltalk .number, .constant, .class .title, .parent, .haskell .type
+    color #b58900
+
+  .preprocessor, .preprocessor .keyword, .shebang, .symbol, .symbol .string, .diff .change,
+  .special, .attr_selector, .important, .subst, .cdata, .clojure .title
+    color #cb4b16
+
+  .deletion
+    color #dc322f
+
+  .tex .formula
+    background #eee8d5
+
+  .optional
+    color gray
