@@ -1,21 +1,20 @@
 {
   "name": "dappspec",
-  "version": "1.0.0",
+  "private": true,
+  "version": "0.0.0",
   "description": "",
-  "main": "index.js",
   "directories": {
-    "doc": "docs"
+    "doc": "docs",
+   "aesthetics": "aesthetics"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sambacha/dappspec.git"
   },
   "keywords": [],
   "author": "sam bacha",
-  "license": "ISC",
+  "license": "UPL",
   "bugs": {
     "url": "https://github.com/sambacha/dappspec/issues"
   },
@@ -23,8 +22,10 @@
   "devDependencies": {
     "autoprefixer": "^10.4.7",
     "cssnano": "^5.1.12",
+    "ebnf": "^1.9.0",
     "prettier": "^2.7.1",
-    "stylelint": "^14.9.1"
+    "stylelint": "^14.9.1",
+    "stylus": "^0.58.1"
   },
   "dependencies": {
     "stylelint-a11y": "^1.2.3"
