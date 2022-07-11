@@ -175,3 +175,35 @@ conf.d linguist-language=Nginx
 > 	}
 > }
 > ``
+
+
+
+### Sidenotes
+
+```
+<link rel="stylesheet" href="https://unpkg.com/latex.css/style.min.css" />
+```
+
+Sidenotes can be used as an alternative to footnotes, where the user does not have to jump to the bottom of the page to read it. On mobile, click the superscript to reveal the noteYay, sidenotes!. If you are on mobile, I will appear inline. If you are using a larger screen, the sidenote will appear to the right of the text..
+
+Sidenotes do need a little bit of setup, they are made up of a label, an invisible checkbox on top of the number and a span with the text inside. The superscript is set automatically and incremented using CSS when the checkbox has a class of sidenote-number.
+
+```html
+<label for="sn-1" class="sidenote-toggle sidenote-number"></label>
+<input type="checkbox" id="sn-1" class="sidenote-toggle" />
+<span class="sidenote"><!-- sidenote content --></span>
+```
+If you do not need superscripted numbers, you can opt out of the sidenote-number class and the sidenote will not have a number assigned. On a smaller screen, you will need to add a symbol inside the label for the user to click on.This is a sidenote without a number.
+
+The snippet for a sidenote without a number is very similar:
+```html
+<label for="sn-anything" class="sidenote-toggle">⊕</label>
+<input type="checkbox" id="sn-anything" class="sidenote-toggle" />
+<span class="sidenote"><!-- sidenote content --></span>
+```
+
+Add a class of left to the span with the sidenote class to make the note appear on the left side of the page on instead of right.
+
+The symbol you could use to indicate a sidenote is up to you. What about this notebook.A notebook indicating a note. Aha.
+(if on a large screen, resize to mobile to see the emoji)
+
