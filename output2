@@ -1,0 +1,547 @@
+::: index
+style, coding style
+:::
+
+# Style Guide
+
+## Introduction
+
+This guide is intended to provide coding conventions for writing
+Solidity code. This guide should be thought of as an evolving document
+that will change over time as useful conventions are found and old
+conventions are rendered obsolete.
+
+Many projects will implement their own style guides. In the event of
+conflicts, project specific style guides take precedence.
+
+The structure and many of the recommendations within this style guide
+were taken from python\'s [pep8 style
+guide](https://www.python.org/dev/peps/pep-0008/).
+
+The goal of this guide is *not* to be the right way or the best way to
+write Solidity code. The goal of this guide is *consistency*. A quote
+from python\'s
+[pep8](https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds)
+captures this concept well.
+
+::: note
+::: title
+Note
+:::
+
+A style guide is about consistency. Consistency with this style guide is
+important. Consistency within a project is more important. Consistency
+within one module or function is most important.
+
+But most importantly: **know when to be inconsistent** \-- sometimes the
+style guide just doesn\'t apply. When in doubt, use your best judgment.
+Look at other examples and decide what looks best. And don\'t hesitate
+to ask!
+:::
+
+## Code Layout
+
+### Indentation
+
+Use 4 spaces per indentation level.
+
+### Tabs or Spaces
+
+Spaces are the preferred indentation method.
+
+Mixing tabs and spaces should be avoided.
+
+### Blank Lines
+
+Surround top level declarations in Solidity source with two blank lines.
+
+Yes:
+
+
+No:
+
+
+Within a contract surround function declarations with a single blank
+line.
+
+Blank lines may be omitted between groups of related one-liners (such as
+stub functions for an abstract contract)
+
+Yes:
+
+
+No:
+
+
+### Maximum Line Length {#maximum_line_length}
+
+Maximum suggested line length is 120 characters.
+
+Wrapped lines should conform to the following guidelines.
+
+1.  The first argument should not be attached to the opening
+    parenthesis.
+2.  One, and only one, indent should be used.
+3.  Each argument should fall on its own line.
+4.  The terminating element, , should be placed on the final line by
+    itself.
+
+Function Calls
+
+Yes:
+
+
+No:
+
+
+Assignment Statements
+
+Yes:
+
+
+No:
+
+
+Event Definitions and Event Emitters
+
+Yes:
+
+
+No:
+
+
+### Source File Encoding
+
+UTF-8 or ASCII encoding is preferred.
+
+### Imports
+
+Import statements should always be placed at the top of the file.
+
+Yes:
+
+
+No:
+
+
+### Order of Functions
+
+Ordering helps readers identify which functions they can call and to
+find the constructor and fallback definitions easier.
+
+Functions should be grouped according to their visibility and ordered:
+
+-   constructor
+-   receive function (if exists)
+-   fallback function (if exists)
+-   external
+-   public
+-   internal
+-   private
+
+Within a grouping, place the  and  functions last.
+
+Yes:
+
+
+No:
+
+
+### Whitespace in Expressions
+
+Avoid extraneous whitespace in the following situations:
+
+Immediately inside parenthesis, brackets or braces, with the exception
+of single line function declarations.
+
+Yes:
+
+
+No:
+
+
+Exception:
+
+
+Immediately before a comma, semicolon:
+
+Yes:
+
+
+No:
+
+
+More than one space around an assignment or other operator to align with
+another:
+
+Yes:
+
+
+No:
+
+
+Don\'t include a whitespace in the receive and fallback functions:
+
+Yes:
+
+
+No:
+
+
+### Control Structures
+
+The braces denoting the body of a contract, library, functions and
+structs should:
+
+-   open on the same line as the declaration
+-   close on their own line at the same indentation level as the
+    beginning of the declaration.
+-   The opening brace should be preceded by a single space.
+
+Yes:
+
+
+No:
+
+
+The same recommendations apply to the control structures , ,
+, and .
+
+Additionally there should be a single space between the control
+structures , , and  and the parenthetic block
+representing the conditional, as well as a single space between the
+conditional parenthetic block and the opening brace.
+
+Yes:
+
+
+No:
+
+
+For control structures whose body contains a single statement, omitting
+the braces is ok *if* the statement is contained on a single line.
+
+Yes:
+
+
+No:
+
+
+For  blocks which have an  or  clause, the 
+should be placed on the same line as the \'s closing brace. This is
+an exception compared to the rules of other block-like structures.
+
+Yes:
+
+
+No:
+
+
+### Function Declaration
+
+For short function declarations, it is recommended for the opening brace
+of the function body to be kept on the same line as the function
+declaration.
+
+The closing brace should be at the same indentation level as the
+function declaration.
+
+The opening brace should be preceded by a single space.
+
+Yes:
+
+
+No:
+
+
+The modifier order for a function should be:
+
+1.  Visibility
+2.  Mutability
+3.  Virtual
+4.  Override
+5.  Custom modifiers
+
+Yes:
+
+
+No:
+
+
+For long function declarations, it is recommended to drop each argument
+onto its own line at the same indentation level as the function body.
+The closing parenthesis and opening bracket should be placed on their
+own line as well at the same indentation level as the function
+declaration.
+
+Yes:
+
+
+No:
+
+
+If a long function declaration has modifiers, then each modifier should
+be dropped to its own line.
+
+Yes:
+
+
+No:
+
+
+Multiline output parameters and return statements should follow the same
+style recommended for wrapping long lines found in the
+{.interpreted-text
+role="ref"} section.
+
+Yes:
+
+
+No:
+
+
+For constructor functions on inherited contracts whose bases require
+arguments, it is recommended to drop the base constructors onto new
+lines in the same manner as modifiers if the function declaration is
+long or hard to read.
+
+Yes:
+
+
+No:
+
+
+When declaring short functions with a single statement, it is
+permissible to do it on a single line.
+
+Permissible:
+
+
+These guidelines for function declarations are intended to improve
+readability. Authors should use their best judgment as this guide does
+not try to cover all possible permutations for function declarations.
+
+### Mappings
+
+In variable declarations, do not separate the keyword  from its
+type by a space. Do not separate any nested  keyword from its
+type by whitespace.
+
+Yes:
+
+
+No:
+
+
+### Variable Declarations
+
+Declarations of array variables should not have a space between the type
+and the brackets.
+
+Yes:
+
+
+No:
+
+
+### Other Recommendations
+
+-   Strings should be quoted with double-quotes instead of
+    single-quotes.
+
+Yes:
+
+
+No:
+
+
+-   Surround operators with a single space on either side.
+
+Yes:
+
+
+No:
+
+
+-   Operators with a higher priority than others can exclude surrounding
+    whitespace in order to denote precedence. This is meant to allow for
+    improved readability for complex statements. You should always use
+    the same amount of whitespace on either side of an operator:
+
+Yes:
+
+
+No:
+
+
+## Order of Layout
+
+Layout contract elements in the following order:
+
+1.  Pragma statements
+2.  Import statements
+3.  Interfaces
+4.  Libraries
+5.  Contracts
+
+Inside each contract, library or interface, use the following order:
+
+1.  Type declarations
+2.  State variables
+3.  Events
+4.  Modifiers
+5.  Functions
+
+::: note
+::: title
+Note
+:::
+
+It might be clearer to declare types close to their use in events or
+state variables.
+:::
+
+## Naming Conventions
+
+Naming conventions are powerful when adopted and used broadly. The use
+of different conventions can convey significant *meta* information that
+would otherwise not be immediately available.
+
+The naming recommendations given here are intended to improve the
+readability, and thus they are not rules, but rather guidelines to try
+and help convey the most information through the names of things.
+
+Lastly, consistency within a codebase should always supersede any
+conventions outlined in this document.
+
+### Naming Styles
+
+To avoid confusion, the following names will be used to refer to
+different naming styles.
+
+-    (single lowercase letter)
+-    (single uppercase letter)
+-   
+-   
+-   
+-    (or CapWords)
+-    (differs from CapitalizedWords by initial lowercase
+    character!)
+
+::: note
+::: title
+Note
+:::
+
+When using initialisms in CapWords, capitalize all the letters of the
+initialisms. Thus HTTPServerError is better than HttpServerError. When
+using initialisms in mixedCase, capitalize all the letters of the
+initialisms, except keep the first one lower case if it is the beginning
+of the name. Thus xmlHTTPRequest is better than XMLHTTPRequest.
+:::
+
+### Names to Avoid
+
+-    - Lowercase letter el
+-    - Uppercase letter oh
+-    - Uppercase letter eye
+
+Never use any of these for single letter variable names. They are often
+indistinguishable from the numerals one and zero.
+
+### Contract and Library Names
+
+-   Contracts and libraries should be named using the CapWords style.
+    Examples: , , ,
+    , , .
+-   Contract and library names should also match their filenames.
+-   If a contract file includes multiple contracts and/or libraries,
+    then the filename should match the *core contract*. This is not
+    recommended however if it can be avoided.
+
+As shown in the example below, if the contract name is  and
+the library name is , then their associated filenames should be
+ and .
+
+Yes:
+
+
+and in :
+
+
+No:
+
+
+and in :
+
+
+### Struct Names
+
+Structs should be named using the CapWords style. Examples: ,
+, .
+
+### Event Names
+
+Events should be named using the CapWords style. Examples: ,
+, , , .
+
+### Function Names
+
+Functions should use mixedCase. Examples: , ,
+, , .
+
+### Function Argument Names
+
+Function arguments should use mixedCase. Examples: ,
+, , , .
+
+When writing library functions that operate on a custom struct, the
+struct should be the first argument and should always be named .
+
+### Local and State Variable Names
+
+Use mixedCase. Examples: , , ,
+, , .
+
+### Constants
+
+Constants should be named with all capital letters with underscores
+separating words. Examples: , , ,
+.
+
+### Modifier Names
+
+Use mixedCase. Examples: , , .
+
+### Enums
+
+Enums, in the style of simple type declarations, should be named using
+the CapWords style. Examples: , , ,
+.
+
+### Avoiding Naming Collisions
+
+-   
+
+This convention is suggested when the desired name collides with that of
+an existing state variable, function, built-in or otherwise reserved
+name.
+
+## NatSpec {#style_guide_natspec}
+
+Solidity contracts can also contain NatSpec comments. They are written
+with a triple slash () or a double asterisk block ()
+and they should be used directly above function declarations or
+statements.
+
+For example, the contract from
+{.interpreted-text
+role="ref"} with the comments added looks like the one below:
+
+
+It is recommended that Solidity contracts are fully annotated using
+{.interpreted-text role="ref"} for all public
+interfaces (everything in the ABI).
+
+Please see the section about {.interpreted-text
+role="ref"} for a detailed explanation.

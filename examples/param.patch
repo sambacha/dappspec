@@ -1,0 +1,10 @@
+5,7c5,9
+<     B(param1)
+<     C(param2, param3)
+<     D(param4) {
+---
+>         B(param1)
+>         C(param2, param3)
+>         D(param4)
+>     {
+>         // do something with param5
