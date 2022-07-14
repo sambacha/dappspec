@@ -1,13 +1,13 @@
 ---
 title: DAppSpec
-version: v2022.06.26
+version: v2022.06.26, v2022.07.13
 authors: <TBD>
 license: CC-SA-2.5
 ---
 
 # dappspec
 
-> Admonitions as @custom:tags
+> NatSpec for frontend usage + Admonitions as @custom:tags
 
 ## Motivation
 
@@ -19,19 +19,45 @@ Dappspec takes the `@custom:...` natspec tag and provides a list of admonitions 
 
 - The General Admonitions are meant to render the docstring content as a code block that you would find in generators like `mkdocs`. [see squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types)
 
-## Anchors
+### `natspec-documentation-default`.
 
-Support for modline anchors:
+ The following `SHOULD` trigger an error:
+ 
+ * A `public` or `external` function which does not have a NatSpec comment
+   
+   * NatSpec comment does not have a `@notice` set
+   * NatSpec comment does not have a `@param` for every parameter
+   * NatSpec comment does not have a `@return` for every return
+ * A `public` storage variable which does not have a NatSpec comment
+   
+   * NatSpec comment does not have a `@notice` set
+   * NatSpec comment does not have a `@param` for every parameter
+   * NatSpec comment does not have a `@return` for every return
+ * An `Error` type which does not have a NatSpec comment
+   
+   * NatSpec commend does not have a `@notice` set
+ 
+ The Solidity project recommends the above. It is extremely useful. And few people do it. So it will be very helpful to add rules for it.
+ 
+  It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI).
+  [docs.soliditylang.org/en/v0.8.6/style-guide.html?highlight=style%20guide#natspec](https://docs.soliditylang.org/en/v0.8.6/style-guide.html?highlight=style%20guide#natspec)
+ 
 
-`#:~:text=`
-
-```
-#:~:text=A%20NatSpec%20Comment.
-```
-
-[see web.dev/text-fragments/](https://web.dev/text-fragments/)
-[see github.com/GoogleChromeLabs/link-to-text-fragment](https://github.com/GoogleChromeLabs/link-to-text-fragment)
-
+ 
+### `natspec-documentation-internal`.
+ 
+ * An `internal` function which does not have a NatSpec comment
+   
+   * NatSpec comment does not have a `@param` for every parameter
+   * NatSpec comment does not have a `@return` for every return
+ 
+ Note that `@notice` is not required in this circumstance because that tag applies to "end users" whereas an `internal` function is useful only to contract developers.
+ 
+ Note that `private` functions are not included in this rule. This is because documentation for implementation details is always less important that documentation for an objects' surface area. If you like, this could be another rule `natspec-documentation-private` and should be default OFF.
+ 
+>**Note**      
+> Credit to fulldecent, [see this comment](https://github.com/protofire/solhint/issues/298)
+ 
 ## Admonitions
 
 - French
@@ -206,4 +232,20 @@ Add a class of left to the span with the sidenote class to make the note appear 
 
 The symbol you could use to indicate a sidenote is up to you. What about this notebook.A notebook indicating a note. Aha.
 (if on a large screen, resize to mobile to see the emoji)
+
+
+
+## Anchors
+
+Support for modline anchors:
+
+`#:~:text=`
+
+```
+#:~:text=A%20NatSpec%20Comment.
+```
+
+[see web.dev/text-fragments/](https://web.dev/text-fragments/)
+[see github.com/GoogleChromeLabs/link-to-text-fragment](https://github.com/GoogleChromeLabs/link-to-text-fragment)
+
 
