@@ -4,8 +4,73 @@ author: Et. Al.
 version: 2022.07.14
 ---
 
+
+# Solidity Style Guide() {
+
+## Table of Contents
+
+  1. [Types](#types)
+  2. [Megalitic comments](#Megalithic-comments)
+
+
+## Explicit Types
+
+  <a name="types--primitives"></a><a name="1.1"></a>
+  - [1.1](#types--primitives) **Alias**: When you access a primitive type you should work directly on its value.
+
+    - `uint`
+    - `int`
+
+- Always perfer the *explicit* type
+
+  <a name="types--complex"></a><a name="1.2"></a>
+  - [1.2](#types--complex)  **Explicit**: When you access a primitive type you should work on its explicit value.
+
+    - `uint256`
+    - `int256`
+
+### prettier-config-solidity
+
+```javascript
+
+   /**
+    *  @param  explicitTypes
+    *  @summary enforces `explicitTypes` to be `true`,
+    *  @example Example: unit = unit256
+    */
+   explicitTypes: 'always',
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+
+## Megalithic comments
+
+In some codebases, you’ll also see attempts to produce large, visually salient geometries as separators, like:
+
+
+`/*--------------------------------------------------------------------------*/`
+<br />
+
+Please don’t do this in new code. 
+
+### 
+Normal conventions should be legible. Use more deeply qualified positions if your code is hard to navigate.
+
+### Example[^1]
+
+```solidity
+    /*//////////////////////////////////////////////////////////////
+                                 EVENTS
+    //////////////////////////////////////////////////////////////*/
+```
+
+[^1]:https://github.com/Rari-Capital/solmate/blob/main/src/tokens/ERC20.sol#L9-#L11
+
+**[⬆ back to top](#table-of-contents)**
+
 ## Order of Layout
-Layout contract elements in the following order [^1]
+Layout contract elements in the following order [^2]
 
 > Contracts
 
@@ -36,8 +101,10 @@ Inside each contract, library or interface, use the following order:
 
 4. Functions
 
-[^1]:[Order Layout](https://docs.soliditylang.org/en/latest/style-guide.html?highlight=style%20guide#order-of-layout)
+[^2]:[Order Layout](https://docs.soliditylang.org/en/latest/style-guide.html?highlight=style%20guide#order-of-layout)
 
+
+**[⬆ back to top](#table-of-contents)**
 
 ## Constructor functions on inherited contracts
 
@@ -102,6 +169,9 @@ contract A is B, C, D {
  }
  ```
 
+**[⬆ back to top](#table-of-contents)**
+
+
 ## Ordering: Function Modifiers
 The modifier order for a function should be:
 
@@ -154,7 +224,9 @@ function shutdown() public onlyOwner {
  }
  ````
  
- 
+**[⬆ back to top](#table-of-contents)**
+
+
 ## Whitespace
 
 Don’t include a whitespace in the receive and fallback functions:
@@ -180,9 +252,16 @@ Don’t include a whitespace in the receive and fallback functions:
 
 ~~~
 
+ 
 </td><td valign="top" width="620">
 
 <img width="620" src="https://d.pr/i/jas5mU.jpeg" alt="Figure 1: Rendered output" />
 
 </td></tr></tbody></table>
 
+
+
+**[⬆ back to top](#table-of-contents)**
+
+
+# };
