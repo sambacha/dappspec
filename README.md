@@ -7,8 +7,20 @@ license: CC-SA-2.5
 
 # dappspec
 
-> NatSpec for frontend usage + Admonitions as @custom:tags
+> NEW: OCI for Contracts
+> OLD: NatSpec for frontend usage + Admonitions as @custom:tags
 
+## TLDR:
+
+```jsdoc
+/**
+ * @custom:org.label-schema.security='ops@manifoldfinance.com'
+ * @custom:org.label-schema.support='github.com/manifoldfinance/support'
+ * @custom:org.label-schema.vcs-url='github.com/manifoldfinance'
+ * @custom:org.label-schema.vendor='CommodityStream, Inc'
+ * @custom:org.label-schema.schema-version="1.0"
+ */
+```
 ## Motivation
 
 Dappspec takes the `@custom:...` natspec tag and provides a list of admonitions for generating documentation for Solidity contracts.
@@ -18,6 +30,9 @@ Dappspec takes the `@custom:...` natspec tag and provides a list of admonitions 
 - The `@custom:security` tag as used by OpenZeppelin for identifiying the point of contact. Similar to `security.txt`, [see an example here](https://www.manifoldfinance.com/.well-known/security.txt)
 
 - The General Admonitions are meant to render the docstring content as a code block that you would find in generators like `mkdocs`. [see squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types)
+
+
+
 
 ### `natspec-documentation-default`.
 
