@@ -1,0 +1,31 @@
+{{!-- Groc page template--}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{targetPath}}</title>
+</head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+<meta name="dappspec-relative-root" content="{{relativeRoot}}">
+<meta name="dappspec-document-path" content="{{targetPath}}">
+<meta name="dappspec-project-path" content="{{projectPath}}">{{if (project.githubURL)}}
+
+<link rel="stylesheet" type="text/css" media="all" href="{{relativeRoot}}assets/style.css">
+<script src="{{relativeRoot}}assets/dappspec.js"></script>
+
+  <body>{{if (!commentsOnly)}}
+    <div id="meta" class="{{commentsOnly ? " commentsonly" : "" }}">{{if (project.githubURL)}}
+      {{else}}
+      <div class="file-path">{{projectPath}}</div>{{/if}}
+    </div>
+    <div id="document" class="{{commentsOnly ? " commentsonly" : "codedoc" }}">{{for (var i in segments)}}
+      <div id="segment-footer">
+        <div id="footer" class="{{commentsOnly ? " commentsonly" : "" }}">{{footerText}}</div>
+      </div>
+    </div>
+  </body>
+
+</html>
