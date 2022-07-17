@@ -1,0 +1,252 @@
+extends: conditional
+message: "'%s' has no definition."
+level: suggestion
+ignorecase: true
+# Ensures that the existence of 'first' implies the existence of 'second'.
+first: '\b([A-Z]{3,5})\b'
+second: '(?:\b[A-Z][a-z]+ )+\(([A-Z]{3,5})\)'
+# ... with the exception of these:
+exceptions:
+#   <!--  based on Solidity docs, see https://solidity.readthedocs.io/en/latest/index.html -->
+#   <!-- Types, see https://solidity.readthedocs.io/en/latest/types.html -->
+  - bool
+  - uint
+  - uint8
+  - uint16
+  - uint24
+  - uint32
+  - uint40
+  - uint48
+  - uint56
+  - uint64
+  - uint72
+  - uint80
+  - uint88
+  - uint96
+  - uint104
+  - uint112
+  - uint120
+  - uint128
+  - uint136
+  - uint144
+  - uint152
+  - uint160
+  - uint168
+  - uint176
+  - uint184
+  - uint192
+  - uint200
+  - uint208
+  - uint216
+  - uint224
+  - uint232
+  - uint240
+  - uint248
+  - uint256
+  - int
+  - int8
+  - int16
+  - int24
+  - int32
+  - int40
+  - int48
+  - int56
+  - int64
+  - int72
+  - int80
+  - int88
+  - int96
+  - int104
+  - int112
+  - int120
+  - int128
+  - int136
+  - int144
+  - int152
+  - int160
+  - int168
+  - int176
+  - int184
+  - int192
+  - int200
+  - int208
+  - int216
+  - int224
+  - int232
+  - int240
+  - int248
+  - int256
+  # <!-- the detailed fixed types are not listed for now, as the whole family is not fully supported -->
+  - ufixed
+  - fixed
+  - address
+  - byte
+  - bytes
+  - bytes1
+  - bytes2
+  - bytes3
+  - bytes4
+  - bytes5
+  - bytes6
+  - bytes7
+  - bytes8
+  - bytes9
+  - bytes10
+  - bytes11
+  - bytes12
+  - bytes13
+  - bytes14
+  - bytes15
+  - bytes16
+  - bytes17
+  - bytes18
+  - bytes19
+  - bytes20
+  - bytes21
+  - bytes22
+  - bytes23
+  - bytes24
+  - bytes25
+  - bytes26
+  - bytes27
+  - bytes28
+  - bytes29
+  - bytes30
+  - bytes31
+  - bytes32
+  - string
+  - mapping
+
+  - 
+  # <!-- Units and global variables, see https://solidity.readthedocs.io/en/latest/units-and-global-variables.html -->
+  # <list name="units">
+  - wei
+  - finney
+  - szabo
+  - ether
+  - seconds
+  - minutes
+  - hours
+  - days
+  - weeks
+
+  # <list name="globals">
+  - block
+  - msg
+  - now
+  - tx
+  - this
+  - super
+  # <!-- global functions, do they belong elswhere? -->
+  - blockhash
+  - gasleft
+  - abi
+  - assert
+  - require
+  - revert
+  - addmod
+  - mulmod
+  - keccak256
+  - sha256
+  - ripemd160
+  - ecrecover
+  - selfdestruct
+  - type
+  # <!-- Low-level log functions, see https://solidity.readthedocs.io/en/latest/contracts.html#low-level-interface-to-logs -->
+  - log0
+  - log1
+  - log2
+  - log3
+  - log4
+
+  
+  # <!-- Keywords, see https://solidity.readthedocs.io/en/latest/miscellaneous.html#cheatsheet -->
+  # <!-- Some keywords that are about program flow were moved to control structures. -->
+  # <list name="keywords">
+  - as
+  - from
+  - is
+  - using
+  # <!-- Type-related, see https://solidity.readthedocs.io/en/latest/types.html -->
+  - enum
+  - true
+  - false
+  - new
+  - struct
+  - constant
+  #  <!-- Function-related, see https://solidity.readthedocs.io/en/latest/types.html#function-types -->
+  - internal
+  - external
+  - public
+  - private
+  - pure
+  - view
+  - payable
+  - returns
+  # <!-- Data location, see https://solidity.readthedocs.io/en/latest/types.html#data-location -->
+  - memory
+  - storage
+  - calldata
+  #  <!-- Operator? Variable-related, see https://solidity.readthedocs.io/en/latest/types.html -->
+  - delete
+  # <!-- Events, see https://solidity.readthedocs.io/en/latest/contracts.html#events -->
+  - event
+  - indexed
+  - </list>
+  - 
+  # <!-- Control structures and expressions, see https://solidity.readthedocs.io/en/latest/control-structures.html -->
+  # controlstructures
+  - if
+  - else
+  - while
+  - do
+  - for
+  - break
+  - continue
+  - return
+  # <!-- moved from keywords -->
+  - import
+  - contract
+  - library
+  - assembly
+  - function
+  - constructor
+  - modifier
+  - emit
+
+  #  Reserved keywords, see https://solidity.readthedocs.io/en/latest/miscellaneous.html#reserved-keywords -->
+  - abstract
+  - after
+  - alias
+  - apply
+  - auto
+  - case
+  - catch
+  - copyof
+  - default
+  - define
+  - final
+  - immutable
+  - implements
+  - in
+  - inline
+  - let
+  - macro
+  - match
+  - mutable
+  - null
+  - of
+  - override
+  - partial
+  - promise
+  - reference
+  - relocatable
+  - sealed
+  - sizeof
+  - static
+  - supports
+  - switch
+  - try
+  - typedef
+  - typeof
+  - unchecked
