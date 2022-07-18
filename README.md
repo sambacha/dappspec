@@ -1,6 +1,6 @@
 ---
 title: DAppSpec
-version: v2022.06.26, v2022.07.13
+version: v2022.06.26, v2022.07.13, v2022.07.19
 authors: <TBD>
 license: CC-SA-2.5
 ---
@@ -263,4 +263,45 @@ Support for modline anchors:
 [see web.dev/text-fragments/](https://web.dev/text-fragments/)
 [see github.com/GoogleChromeLabs/link-to-text-fragment](https://github.com/GoogleChromeLabs/link-to-text-fragment)
 
+
+
+## Use GNU-style names with a stem and major.minor.patch numbering.
+
+It's helpful to everybody if your archive files all have GNU-like names — all-lower-case alphanumeric stem prefix, followed by a dash, followed by a version number, extension, and other suffixes.
+
+> Please _don't_ use names like \`foobar-ELF-1.2.3.tar.gz', because programs have a hard time telling type infixes (like \`-ELF') from the stem.
+
+A good general form of the name has these parts in order:
+
+1.  project prefix
+    
+2.  dash
+    
+3.  version number
+    
+4.  dot
+    
+5.  "src" or "bin" (optional)
+    
+6.  dot or dash (dot preferred)
+    
+7.  binary type and options (optional)
+    
+8.  archiving and compression extensions
+
+```
+foobar-1.2.3.tar.gz
+```
+
+```
+foobar-1.2.3.bin.solc.0.8.15.tar.gz
+```
+
+```
+foobar-1.2.3.ethereum.solc.0.8.15.tar.gz
+```
+
+```
+foobar-1.2.3.ethereum.solc.0.8.15.tar.gz
+```
 
