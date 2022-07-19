@@ -2,6 +2,7 @@
 title: Hex Literals
 section: Hex Literals
 category: recommendations
+source: https://github.com/sense-finance/sense-v1/blob/dev/audits/spearbit/2022-01-21.pdf
 id: 00001
 ---
 
