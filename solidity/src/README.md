@@ -2,6 +2,11 @@
 
 ## Writing Style
 
+     
+Every ` , ` comma should be followed by a space or a line break.     
+Each   ` ; ` semicolon at the end of a statement should be followed with a line break.          
+Each   ` ; ` semicolon in the control part of a for statement should be followed with a space.     
+ 
 ### Comments
 
 Be generous with comments. It is useful to leave information that will be read at a later time by people (possibly your future self) who will need to understand what you have done and why. The comments should be well-written and clear, just like the code they are annotating. An occasional nugget of humor might be appreciated. Frustrations and resentments will not.
