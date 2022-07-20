@@ -1,5 +1,7 @@
+# Prettier Configurations
 
-Word Wrap[^1]
+
+### Word Wrap[^1]
 
 ```diff
 -            ),"Err.minRate" );
