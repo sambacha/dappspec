@@ -15,3 +15,29 @@ The condition, the ? question mark, and the : colon always begins a line, indent
       : (destinationToken, sourceToken);
       
 ```
+
+### Example
+
+#### Incorrect
+
+```solidity
+ (uint112 reserveIn, uint112 reserveOut) = isReverse ? (reserve1, reserve0) : (reserve0, reserve1);
+``` 
+
+#### Correct
+
+```solidity
+  (uint112 reserveIn, uint112 reserveOut) = isReverse
+      ? (reserve1, reserve0)
+      : (reserve0, reserve1);
+```
+
+#### Semantic Diff
+
+```diff
+-  (uint112 reserveIn, uint112 reserveOut) = isReverse ? (reserve1, reserve0) : (reserve0, reserve1);
++  (uint112 reserveIn, uint112 reserveOut) = isReverse
+!                ? (reserve1, reserve0)
+!                : (reserve0, reserve1);
+```       
+       
