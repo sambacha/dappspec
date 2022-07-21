@@ -279,19 +279,21 @@ Any integer value that is over 10,000 MUST be represented using underscore synta
 ~~~diff
 
 // Correct
-+ (Babylonian.sqrt(reserveIn * (userIn * 3_988_000 + reserveIn * 3_988_009))
++ (Babylonian.sqrt(reserveIn * 
++  (userIn * 3_988_000 + reserveIn * 3_988_009))
 
 
 // Incorrect
-- (Babylonian.sqrt(reserveIn * (userIn * 3988000 + reserveIn * 3988009)) 
+- (Babylonian.sqrt(reserveIn * 
+-  (userIn * 3988000 + reserveIn * 3988009)) 
 //
 
 ~~~
 
  
-</td><td valign="top" width="620">
+</td><td valign="top" width="700">
 
-<img width="620" src="https://d.pr/i/hYlz6u.jpeg" alt="Figure 2: Rendered output" />
+<img width="700" src="https://d.pr/i/hYlz6u.jpeg" alt="Figure 2: Rendered output" />
 
 </td></tr></tbody></table>
 
