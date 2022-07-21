@@ -1,6 +1,49 @@
-# Style Guides
+#  Timeless Documentation[^1]
 
-## Writing Style
+> Break any of these rules sooner than say anything outright barbarous.  <br />
+>                     —George Orwell, "[Politics and the English Language](https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/)"
+> 
+
+
+[^1]: source: [emory.edu/documents/mcenerney-problem-of-the-problem.pdf](http://www.writingcenter.emory.edu/documents/mcenerney-problem-of-the-problem.pdf)
+
+## Preface
+
+On Craftsmanship
+
+> [Software development is all about the unknown. The production process for software is trivially easy—just copy a disk or CD. The software engineering metaphor fails because we understand production, a mechanical task, much better than we understand design, an intellectual task.](https://learning.oreilly.com/library/view/software-craftsmanship-the/0201733862/ch06.html)
+>
+
+>**Note** <br />
+> We use the term `author` throughout this work, that is you, the engineer/developer. You are authoring contracts, code, etc.
+
+## Voice and tone
+
+Unfortunately, many conventional models of introductions fail to show value.
+US schools for many years relied on a model of writing in which the function of
+introductions was not to establish value. This isn’t surprising: as we’ve seen, authors do
+not, in fact, need to use their writing to establish its value for their teacher/readers. The
+value is established in another way: **the teachers are paid to read.**
+
+**Instead of learning to establish value, many authors learn a different function for
+introductions, a function that emphasizes creating a stable base for the essay.** In this
+model, the chief function of the writing as a whole is to explain, and so the function of
+the introduction is to prepare the reader to understand the material. The imaginary
+situation is that the reader doesn’t know much (or anything) about the topic, and so
+the writer’s job in the introduction is primarily to give enough background information about
+a topic so that readers could move smoothly to the main ideas of the paper.
+
+>**Note** <br />
+> We almost always overestimate our readers' sense of the importance of what we think is important. Any time you decide to skip stating a motivating problem, you ought to look hard at whether or not your readers are so motivated that they will read your prose even if they perceive it to be useless to them
+
+*Here are just three of the standard theories of introductions, note that none of them
+shows directly why the text will be valuable for readers.*
+
+![](https://d.pr/i/tukopP.jpeg)
+
+
+
+## Authoring Style
 
      
 Every ` , ` comma should be followed by a space or a line break.     
@@ -50,93 +93,6 @@ error getting string?? "foo/bar/string"
 #:~:text=This%20action%20uses%20Size%20Limit,the%20cost%20exceeds%20the%20limit.
 
 ```
-
-### Grammar Scopes
-
-[see https://github.com/Alhadis/language-etc/tree/master/samples](https://github.com/Alhadis/language-etc/tree/master/samples)
-
-```nanorc
-
-     PRIMER PREVIEW - How grammar scopes look on GitHub:
-                Last updated:  2021-02-18
-
-│ TEXTMATE SCOPE NAME(S)                CSS CLASS     COLOUR   │
-│ brackethighlighter.angle              pl-ba       ░▒▓███████ │
-│ brackethighlighter.curly              pl-ba       ░▒▓███████ │
-│ brackethighlighter.quote              pl-ba       ░▒▓███████ │
-│ brackethighlighter.round              pl-ba       ░▒▓███████ │
-│ brackethighlighter.square             pl-ba       ░▒▓███████ │
-│ brackethighlighter.tag                pl-ba       ░▒▓███████ │
-│ brackethighlighter.unmatched          pl-bu       ░▒▓███████ │
-│ carriage-return                       pl-c2       ░▒▓███████ │
-│ comment                               pl-c        ░▒▓███████ │
-│ constant                              pl-c1       ░▒▓███████ │
-│ constant.character.escape             pl-cce      ░▒▓███████ │
-│ constant.other.reference.link         pl-corl     ░▒▓███████ │
-│ entity                                pl-e        ░▒▓███████ │
-│ entity.name                           pl-en       ░▒▓███████ │
-│ entity.name.constant                  pl-c1       ░▒▓███████ │
-│ entity.name.tag                       pl-ent      ░▒▓███████ │
-│ invalid.broken                        pl-bu       ░▒▓███████ │
-│ invalid.deprecated                    pl-bu       ░▒▓███████ │
-│ invalid.illegal                       pl-ii       ░▒▓███████ │
-│ invalid.unimplemented                 pl-bu       ░▒▓███████ │
-│ keyword                               pl-k        ░▒▓███████ │
-│ keyword.operator.symbole              pl-kos      ░▒▓███████ │
-│ keyword.other.mark                    pl-kos      ░▒▓███████ │
-│ markup.bold                           pl-mb       ░▒▓███████ │
-│ markup.changed                        pl-mc       ░▒▓███████ │
-│ markup.deleted                        pl-md       ░▒▓███████ │
-│ markup.heading                        pl-mh       ░▒▓███████ │
-│ markup.ignored                        pl-mi2      ░▒▓███████ │
-│ markup.inserted                       pl-mi1      ░▒▓███████ │
-│ markup.italic                         pl-mi       ░▒▓███████ │
-│ markup.list                           pl-ml       ░▒▓███████ │
-│ markup.quote                          pl-ent      ░▒▓███████ │
-│ markup.raw                            pl-c1       ░▒▓███████ │
-│ markup.untracked                      pl-mi2      ░▒▓███████ │
-│ message.error                         pl-bu       ░▒▓███████ │
-│ meta.diff.header                      pl-c1       ░▒▓███████ │
-│ meta.diff.header.from-file            pl-md       ░▒▓███████ │
-│ meta.diff.header.to-file              pl-mi1      ░▒▓███████ │
-│ meta.diff.range                       pl-mdr      ░▒▓███████ │
-│ meta.module-reference                 pl-c1       ░▒▓███████ │
-│ meta.output                           pl-c1       ░▒▓███████ │
-│ meta.property-name                    pl-c1       ░▒▓███████ │
-│ meta.separator                        pl-ms       ░▒▓███████ │
-│ punctuation.definition.changed        pl-mc       ░▒▓███████ │
-│ punctuation.definition.comment        pl-c        ░▒▓███████ │
-│ punctuation.definition.deleted        pl-md       ░▒▓███████ │
-│ punctuation.definition.inserted       pl-mi1      ░▒▓███████ │
-│ punctuation.definition.string         pl-pds      ░▒▓███████ │
-│ punctuation.section.embedded          pl-pse      ░▒▓███████ │
-│ source                                pl-s1       ░▒▓███████ │
-│ source.regexp                         pl-pds      ░▒▓███████ │
-│ source.ruby.embedded                  pl-sre      ░▒▓███████ │
-│ storage                               pl-k        ░▒▓███████ │
-│ storage.modifier.import               pl-smi      ░▒▓███████ │
-│ storage.modifier.package              pl-smi      ░▒▓███████ │
-│ storage.type                          pl-k        ░▒▓███████ │
-│ storage.type.java                     pl-smi      ░▒▓███████ │
-│ string                                pl-s        ░▒▓███████ │
-│ string.comment                        pl-c        ░▒▓███████ │
-│ string.other.link                     pl-corl     ░▒▓███████ │
-│ string.regexp                         pl-sr       ░▒▓███████ │
-│ string.regexp.arbitrary-repitition    pl-sra      ░▒▓███████ │
-│ string.regexp.character-class         pl-pds      ░▒▓███████ │
-│ string.unquoted.import.ada            pl-kos      ░▒▓███████ │
-│ sublimelinter.gutter-mark             pl-sg       ░▒▓███████ │
-│ sublimelinter.mark.error              pl-bu       ░▒▓███████ │
-│ sublimelinter.mark.warning            pl-smw      ░▒▓███████ │
-│ support                               pl-c1       ░▒▓███████ │
-│ support.constant                      pl-c1       ░▒▓███████ │
-│ support.variable                      pl-c1       ░▒▓███████ │
-│ variable                              pl-v        ░▒▓███████ │
-│ variable.language                     pl-c1       ░▒▓███████ │
-│ variable.other                        pl-smi      ░▒▓███████ │
-│ variable.other.constant               pl-c1       ░▒▓███████ │
-│ variable.parameter.function           pl-smi      ░▒▓███████ │
-│                                                              │
 
 # vim: set ts=40:
 # Local Variables:
