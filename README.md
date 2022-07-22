@@ -10,7 +10,7 @@ license: CC-SA-2.5
 > NEW: OCI for Contracts
 > OLD: NatSpec for frontend usage + Admonitions as @custom:tags
 
-## TLDR:
+## Example of @custom:natspec
 
 ```jsdoc
 /**
