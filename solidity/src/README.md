@@ -7,6 +7,20 @@
 
 [^1]: source: [emory.edu/documents/mcenerney-problem-of-the-problem.pdf](http://www.writingcenter.emory.edu/documents/mcenerney-problem-of-the-problem.pdf)
 
+
+
+## Overview
+
+- Don't be too clever
+- Don't sacrifice clarity for efficiency
+- Know your language
+- Use the idioms of your language
+- Every time you make a decision, do something
+- Check boundary conditions
+- Program defensively
+- Make every comment count
+- Don't comment bad code -- rewrite it
+
 ## Preface
 
 On Craftsmanship
@@ -16,6 +30,8 @@ On Craftsmanship
 
 >**Note** <br />
 > We use the term `author` throughout this work, that is you, the engineer/developer. You are authoring contracts, code, etc.
+
+
 
 ## Voice and tone
 
@@ -63,38 +79,3 @@ Make comments meaningful. Focus on what is not immediately visible. Don't waste 
 
     i = 0;
 ```
-
-
-
-## Shell
-
-```console
-
-root:~ (master) $ cmd run
-    Finished dev [unoptimized + debuginfo] target(s) in 0.06s
-     Running `target/debug/rust-bin`
-error getting string?? "foo/bar/string"
-```
-
-<pre>
-```console
-
-root:~ (master) $ cmd run
-    Finished dev [unoptimized + debuginfo] target(s) in 0.06s
-     Running `target/debug/rust-bin`
-error getting string?? "foo/bar/string"
-```
-</pre>
-
-
-## Anchors
-
-```
-#:~:text=This%20action%20uses%20Size%20Limit,the%20cost%20exceeds%20the%20limit.
-
-```
-
-# vim: set ts=40:
-# Local Variables:
-# tab-width: 40
-# End:
