@@ -64,25 +64,3 @@ shows directly why the text will be valuable for readers.*
 
 ![](https://d.pr/i/tukopP.jpeg)
 
-
-
-## Authoring Style
-
-     
-Every ` , ` comma should be followed by a space or a line break.     
-Each   ` ; ` semicolon at the end of a statement should be followed with a line break.          
-Each   ` ; ` semicolon in the control part of a for statement should be followed with a space.     
- 
-### Comments
-
-Be generous with comments. It is useful to leave information that will be read at a later time by people (possibly your future self) who will need to understand what you have done and why. The comments should be well-written and clear, just like the code they are annotating. An occasional nugget of humor might be appreciated. Frustrations and resentments will not.
-
-It is important that comments be kept up-to-date. Erroneous comments can make programs even harder to read and understand.
-
-Make comments meaningful. Focus on what is not immediately visible. Don't waste the reader's time with stuff like
-
-```javascript
-    // Set i to zero.
-
-    i = 0;
-```
