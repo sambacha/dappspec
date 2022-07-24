@@ -35,6 +35,13 @@ On Craftsmanship
 
 ## Voice and tone
 
+> Adapted from Mcenerney's *Problem of the Problem*
+
+*Legend*
+> Reader's are Auditors, or other Engineering/Developers.    
+> The Topic in question is the codebase.   
+> The writing is the documentation / comments.  
+
 Unfortunately, many conventional models of introductions fail to show value.
 US schools for many years relied on a model of writing in which the function of
 introductions was not to establish value. This isn’t surprising: as we’ve seen, authors do
@@ -42,11 +49,11 @@ not, in fact, need to use their writing to establish its value for their teacher
 value is established in another way: **the teachers are paid to read.**
 
 **Instead of learning to establish value, many authors learn a different function for
-introductions, a function that emphasizes creating a stable base for the essay.** In this
-model, the chief function of the writing as a whole is to explain, and so the function of
-the introduction is to prepare the reader to understand the material. The imaginary
-situation is that the reader doesn’t know much (or anything) about the topic, and so
-the writer’s job in the introduction is primarily to give enough background information about
+introductions, a function that emphasizes creating a stable base for their work (i.e a justification).** In this
+model, the chief function of the documentation as a whole is to explain, and so the function of
+the introduction is to prepare the reader (auditor) to understand the material. The imaginary
+situation is that the reader doesn’t know much (or anything) about the topic (the work), and so
+the author’s job in the introduction is primarily to give enough background information about
 a topic so that readers could move smoothly to the main ideas of the paper.
 
 >**Note** <br />
