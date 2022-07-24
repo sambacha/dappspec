@@ -166,6 +166,38 @@ Supplementary Private Use Area-B (U+100000 … U+10FFFF)
 </pre>
 
 
+## Solidity Versions and Feature Sets
+
+> Narrowing down compiler versions 
+
+| **Features**             	| **Supported**    	| **Not Available **                               	|
+|---------------------------|------------------	|-----------------------------------------------|
+| receive-keyword          	| =0.6.0: true    	| <0.6.0: false                                  	|
+| fallback-keyword         	| =0.6.0: true    	| <0.6.0: false                                  	|
+| array-parameter-location 	| =0.7.0: memory  	| ^0.5.0 \|\| ^0.6.0: calldata<0.5.0: undefined 	|
+| abiencoder-v2            	| =0.8.0: default 	| <0.8.0: experimental                             	|
+| global-structs           	| =0.6.0: true    	| <0.6.0: false                                   	|
+| structs-in-interfaces    	| =0.5.0: true    	| <0.5.0: false                                  	|
+| custom-errors            	| =0.8.4: true    	| <0.8.4: false                                  	|
+| user-defined-value-types 	| =0.8.8: true     	| <0.8.8: false                                  	|
+
+
+## URN Generation
+
+>**Warning**.   
+> Work in Progress
+
+0. Accreative Versioning Spec [namespace].    
+1. Language [Solidity, Vyper, Fe, LLL].    
+2. Compiler Version.    
+3. Compiler Flags [default, custom, undefined].    
+4. ABI pragma [v1, v2, (...), undefined].    
+>> [0,1,2,3,4].    
++= 5. Generated ABI.    
+
+
+### Protobuf IDL
+
 ```protobuf
 
 syntax = "proto2";
@@ -250,7 +282,7 @@ package ethereum.versioning.schema.abiV2;
 ```
 
 
-## Summary
+## Discussion and Summary
 
 ### The Only Truth is Runtime
 
