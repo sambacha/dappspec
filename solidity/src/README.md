@@ -1,4 +1,10 @@
-#  Timeless Documentation[^1]
+---
+title: Timeless Style & Documentation
+description: Solidity and Yul contract style and conformance dogma
+version: 2022.08.02
+---
+
+#  Timeless Style & Documentation[^1]
 
 > Break any of these rules sooner than say anything outright barbarous.  <br />
 >                     —George Orwell, "[Politics and the English Language](https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/)"
@@ -8,8 +14,12 @@
 [^1]: source: [emory.edu/documents/mcenerney-problem-of-the-problem.pdf](http://www.writingcenter.emory.edu/documents/mcenerney-problem-of-the-problem.pdf)
 
 
+## Motivation
 
-## Overview
+> **Note**    
+> 🚧 _work in progress_ 🚧
+
+## Principles
 
 - Don't be too clever
 - Don't sacrifice clarity for efficiency
@@ -20,6 +30,50 @@
 - Program defensively
 - Make every comment count
 - Don't comment bad code -- rewrite it
+
+
+## Style Axioms
+
+- Strings MUST be quoted with double-quotes instead of single-quotes.
+
+- Spaces are the preferred indentation method.
+
+### Order of Layout
+
+Layout contract elements in the following order:
+
+<pre>
+Pragma statements
+Import statements
+Interfaces
+Libraries
+Contracts
+</pre>
+
+Inside each contract, library or interface, use the following order:
+
+<pre>
+Type declarations
+State variables
+Events
+Functions
+</pre>
+
+### Naming Styles
+
+To avoid confusion, the following names will be used to refer to different naming styles.
+
+<pre>Name Styles
+b (single lowercase letter)
+B (single uppercase letter)
+lowercase
+lower_case_with_underscores
+UPPERCASE
+UPPER_CASE_WITH_UNDERSCORES
+CapitalizedWords (or CapWords)
+mixedCase (differs from CapitalizedWords by initial lowercase character!)
+Capitalized_Words_With_Underscores
+</pre>
 
 ## Preface
 
