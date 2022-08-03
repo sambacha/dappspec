@@ -1,0 +1,124 @@
+{
+    "dappspec-format.expert.custom.styles": {
+        "default": {
+            "gutterIconPath": "images/admonitions-blue.svg",
+            "overviewRulerColor": "rgba(21, 126, 251, 0.7)",
+            "light": {
+                "fontWeight": "bold"
+            },
+            "dark": {
+                "color": "Chocolate"
+            }
+        },
+        "red": {
+            "gutterIconPath": "images/admonitions-red.svg",
+            "light": {
+                "fontWeight": "bold"
+            },
+            "dark": {
+                "color": "Chocolate"
+            }
+        },
+        "blue": {
+            "gutterIconPath": "images/admonitions-blue.svg",
+            "light": {
+                "fontWeight": "bold"
+            },
+            "dark": {
+                "color": "Chocolate"
+            }
+        },
+        "green": {
+            "gutterIconPath": "images/admonitions-green.svg",
+            "light": {
+                "fontWeight": "bold"
+            },
+            "dark": {
+                "color": "Chocolate"
+            }
+        },
+        "purple": {
+            "gutterIconPath": "images/admonitions-purple.svg",
+            "light": {
+                "fontWeight": "bold"
+            },
+            "dark": {
+                "color": "Chocolate"
+            }
+        },
+        "orange": {
+            "gutterIconPath": "images/admonitions_orange.svg",
+            "light": {
+                "fontWeight": "bold"
+            },
+            "dark": {
+                "color": "Chocolate"
+            }
+        },
+        "yellow": {
+            "gutterIconPath": "images/admonitions_yellow.svg",
+            "light": {
+                "fontWeight": "bold"
+            },
+            "dark": {
+                "color": "Chocolate"
+            }
+        },
+        "grey": {
+            "gutterIconPath": "images/admonitions_electric.svg",
+            "light": {
+                "fontWeight": "bold"
+            },
+            "dark": {
+                "color": "Chocolate"
+            }
+        },
+        "white": {
+            "gutterIconPath": "images/admonitions_white.svg",
+            "light": {
+                "fontWeight": "bold"
+            },
+            "dark": {
+                "color": "Chocolate"
+            }
+        }
+    },
+    "pink": {
+        "gutterIconPath": "images/admonitions_pink.svg",
+        "light": {
+            "fontWeight": "bold"
+        },
+        "dark": {
+            "color": "Chocolate"
+        }
+    },
+    "dappspec-format.expert.custom.words.mapping": {
+        "blue": [
+            "@custom\\:info[ \\t\\n]"
+        ],
+        "purple": [
+            "@custom\\:hint[ \t\\n]"
+        ],
+        "green": [
+            "@custom\\:check[ \\t\\n]"
+        ],
+        "red": [
+            "@custom\\:danger[ \\t\\n]"
+        ],
+        "white": [
+            "@docs[ \\t\\n]"
+        ],
+        "grey": [
+            "@custom\\:ok[ \\t\\n]"
+        ],
+        "yellow": [
+            "@custom\\:attention[ \\t\\n]"
+        ],
+        "orange": [
+            "@custom\\:caution[ \\t\\n]"
+        ],
+        "pink": [
+            "@custom\\:ref[ \\t\\n]"
+        ]
+    }
+}
