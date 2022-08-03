@@ -312,6 +312,25 @@ software.  Just grow it.  The other is to turn what would have been
 breaking into accretion.  In other words, if you are going to have a
 variant, give birth to a variant.  Do not muck with a thing.
 
+### Locked Versioning in the wild 
+
+> These are more recent examples
+
+#### qoi2-bikeshed
+
+https://github.com/nigeltao/qoi2-bikeshed
+
+> QOI (the "Quite OK Image" format for fast, lossless image compression) was announced in November 2021:
+
+> https://phoboslab.org/log/2021/11/qoi-fast-lossless-image-compression
+> https://github.com/phoboslab/qoi
+
+It attracted a lot of interest and suggested changes. The performance / compression numbers were impressive! Shortly afterwards, the author declared "the data format is now fixed" (fixed meaning unchanging, not unbroken), as they were absolutely entitled to do.[^4]
+
+They then created a *placeholder repository (and in particular, its GitHub issue tracker)* as an unofficial place to continue those bike-shedding discussions - a possible "QOI version 2".[^5]
+[^4]: [see https://github.com/phoboslab/qoi/issues/37#issuecomment-980789466](https://github.com/phoboslab/qoi/issues/37#issuecomment-980789466)
+[^5]: [https://github.com/nigeltao/qoi2-bikeshed#:~:text=README.md-,qoi2-bikeshed,actually%0Aresult%20in%20anything.,-Please%20file%20separate](https://github.com/nigeltao/qoi2-bikeshed#:~:text=README.md-,qoi2-bikeshed,actually%0Aresult%20in%20anything.,-Please%20file%20separate)
+
 ---
 
 ### References 
