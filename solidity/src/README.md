@@ -118,3 +118,11 @@ shows directly why the text will be valuable for readers.*
 
 ![](https://d.pr/i/tukopP.jpeg)
 
+
+## Examples
+
+
+#### Kakoune Design specification
+This is a great example of a high level design spec that is easily accessible and communicates value to the end user as to why they should care about their approach. 
+> [Kakoune design specification](https://github.com/mawww/kakoune/blob/master/doc/design.asciidoc)
+
