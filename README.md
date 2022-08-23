@@ -1,11 +1,17 @@
 ---
 title: DAppSpec
-version: v2022.06.26, v2022.07.13, v2022.07.19
+version: v2022.06.26, v2022.07.13, v2022.07.19, v2022.08.23
 authors: <TBD>
 license: CC-SA-2.5
 ---
 
 # dappspec
+
+## Overview
+
+`dappspec` provides a CSS library for generating documentation from solidity natspec, you can find the preliminary library over at [https://github.com/sambacha/dappspec-css](https://github.com/sambacha/dappspec-css)
+
+> This repo is a working repo for ideation and documentation.
 
 > NEW: OCI for Contracts
 > OLD: NatSpec for frontend usage + Admonitions as @custom:tags
