@@ -73,9 +73,29 @@ slide title: Breaking Changes are
 
 ## Motivation
 
-This specification aims to provide a versioning format such that in this context it is a `providing` format/context vs. a r`equiring` format/context.
+Currently, ABI doesn’t implement introspection. Additionally there are language issues (re: Solidity) that complicate things.
 
-This specification solves the problem that you do not know you have.  And that problem is the intense anxiety and pressure you feel when dealing with mutability on an ongoing basis.[^1]
+1. EIP 165
+i.e. 'does this contract implement ERC20?'. *see General Issues for more context*
+
+### Solidity Issues
+
+- Solidity should have this in-built.
+- Should be built into the API spec and compiler.
+- 
++ Inheritance:
+Interface or abstract contract – e.g. Solidity automatically creates getters for state functions
+this collides with contracts which implements an interface – public or external for abstract functions: they collide
+
+### General Issues
+
++ ERCs – there is not a formal way to describe the interface for contracts.
+Have a standard repo –– this will lead to a canonical ABI definition –– can have semantic rules around this. Can run some specific unit tests against
+
+
+This specification aims to provide a versioning format such that in this context it is a `providing` format/context vs. a `requiring` format/context.
+
+> This specification solves the problem that you do not know you have.  And that problem is the intense anxiety and pressure you feel when dealing with mutability on an ongoing basis.[^1]
 
 [^1]:https://github.com/jafingerhut/jafingerhut.github.com/blob/bac71ac5a1356334bd11b9d17866731310e1ccf6/transcripts/2016-dec-rich-hickey-spec-ulation.txt#L1221-#L1224
 
