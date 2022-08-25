@@ -132,6 +132,18 @@ Example:
 ```
 </pre>
 
+
+### Dependency categorization 
+
+> see the section `Theory of dependency categorization ` below for more details
+
+Take these three values 
+
+- build: `metadata: IPFS` 
+- host: `block.chainid == deploymentChainId ? _DOMAIN_SEPARATOR : _calculateDomainSeparator(block.chainid),`
+- target: EVM Version min. version. 
+
+
 ## Accreting collection of Immutable Things
 
 > Use Lamport-like logic to know what they could not have seen
@@ -303,6 +315,85 @@ message Contract {
 package ethereum.versioning.schema.abiV2;
 ```
 
+### Theory of dependency categorization 
+
+> sourced from the nix pkgs documentation, nix/nixpkgs/doc/stdenv/cross-compilation.chapter.md
+
+::: note
+This is a rather philosophical description that isn't very Nixpkgs-specific.
+:::
+
+In this section we explore the relationship between both runtime and build-time dependencies and the 3 Autoconf platforms.
+
+A run time dependency between two packages requires that their host platforms match. This is directly implied by the meaning of "host platform" and "runtime dependency": The package dependency exists while both packages are running on a single host platform.
+
+A build time dependency, however, has a shift in platforms between the depending package and the depended-on package. "build time dependency" means that to build the depending package we need to be able to run the depended-on's package. The depending package's build platform is therefore equal to the depended-on package's host platform.
+
+If both the dependency and depending packages aren't compilers or other machine-code-producing tools, we're done. And indeed `buildInputs` and `nativeBuildInputs` have covered these simpler cases for many years. But if the dependency does produce machine code, we might need to worry about its target platform too. In principle, that target platform might be any of the depending package's build, host, or target platforms, but we prohibit dependencies from a "later" platform to an earlier platform to limit confusion because we've never seen a legitimate use for them.
+
+Finally, if the depending package is a compiler or other machine-code-producing tool, it might need dependencies that run at "emit time". This is for compilers that (regrettably) insist on being built together with their source languages' standard libraries. Assuming build != host != target, a run-time dependency of the standard library cannot be run at the compiler's build time or run time, but only at the run time of code emitted by the compiler.
+
+Putting this all together, that means we have dependencies in the form "host → target", in at most the following six combinations:
+
+
+#### Possible dependency types
+| Dependency's host platform | Dependency's target platform |
+| --                         | --                           |
+| build                      | build                        |
+| build                      | host                         |
+| build                      | target                       |
+| host                       | host                         |
+| host                       | target                       |
+| target                     | target                       |
+
+
+Some examples will make this table clearer. Suppose there's some package that is being built with a `(build, host, target)` platform triple of `(foo, bar, baz)`. If it has a build-time library dependency, that would be a "host → build" dependency with a triple of `(foo, foo, *)` (the target platform is irrelevant). If it needs a compiler to be built, that would be a "build → host" dependency with a triple of `(foo, foo, *)` (the target platform is irrelevant). That compiler, would be built with another compiler, also "build → host" dependency, with a triple of `(foo, foo, foo)`.
+
+### Cross packaging cookbook {#ssec-cross-cookbook}
+
+Some frequently encountered problems when packaging for cross-compilation should be answered here. Ideally, the information above is exhaustive, so this section cannot provide any new information, but it is ludicrous and cruel to expect everyone to spend effort working through the interaction of many features just to figure out the same answer to the same common problem. Feel free to add to this list!
+
+#### What if my package's build system needs to build a C program to be run under the build environment? {#cross-qa-build-c-program-in-build-environment}
+Add the following to your `mkDerivation` invocation.
+```nix
+depsBuildBuild = [ buildPackages.stdenv.cc ];
+```
+
+#### My package fails to find `ar`. {#cross-qa-fails-to-find-ar}
+Many packages assume that an unprefixed `ar` is available, but Nix doesn't provide one. It only provides a prefixed one, just as it only does for all the other binutils programs. It may be necessary to patch the package to fix the build system to use a prefixed `ar`.
+
+####  My package's testsuite needs to run host platform code. {#cross-testsuite-runs-host-code}
+
+Add the following to your `mkDerivation` invocation.
+```nix
+doCheck = stdenv.hostPlatform == stdenv.buildPlatfrom;
+```
+
+## Cross-building packages {#sec-cross-usage}
+
+Nixpkgs can be instantiated with `localSystem` alone, in which case there is no cross-compiling and everything is built by and for that system, or also with `crossSystem`, in which case packages run on the latter, but all building happens on the former. Both parameters take the same schema as the 3 (build, host, and target) platforms defined in the previous section. As mentioned above, `lib.systems.examples` has some platforms which are used as arguments for these parameters in practice. You can use them programmatically, or on the command line:
+
+```ShellSession
+$ nix-build '<nixpkgs>' --arg crossSystem '(import <nixpkgs/lib>).systems.examples.fooBarBaz' -A whatever
+```
+
+::: note
+Eventually we would like to make these platform examples an unnecessary convenience so that
+
+```ShellSession
+$ nix-build '<nixpkgs>' --arg crossSystem '{ config = "<arch>-<os>-<vendor>-<abi>"; }' -A whatever
+```
+
+works in the vast majority of cases. The problem today is dependencies on other sorts of configuration which aren't given proper defaults. We rely on the examples to crudely to set those configuration parameters in some vaguely sane manner on the users behalf. Issue [\#34274](https://github.com/NixOS/nixpkgs/issues/34274) tracks this inconvenience along with its root cause in crufty configuration options.
+:::
+
+While one is free to pass both parameters in full, there's a lot of logic to fill in missing fields. As discussed in the previous section, only one of `system`, `config`, and `parsed` is needed to infer the other two. Additionally, `libc` will be inferred from `parse`. Finally, `localSystem.system` is also _impurely_ inferred based on the platform evaluation occurs. This means it is often not necessary to pass `localSystem` at all, as in the command-line example in the previous paragraph.
+
+::: note
+Many sources (manual, wiki, etc) probably mention passing `system`, `platform`, along with the optional `crossSystem` to Nixpkgs: `import <nixpkgs> { system = ..; platform = ..; crossSystem = ..; }`. Passing those two instead of `localSystem` is still supported for compatibility, but is discouraged. Indeed, much of the inference we do for these parameters is motivated by compatibility as much as convenience.
+:::
+
+One would think that `localSystem` and `crossSystem` overlap horribly with the three `*Platforms` (`buildPlatform`, `hostPlatform,` and `targetPlatform`; see `stage.nix` or the manual). Actually, those identifiers are purposefully not used here to draw a subtle but important distinction: While the granularity of having 3 platforms is necessary to properly *build* packages, it is overkill for specifying the user's *intent* when making a build plan or package set. A simple "build vs deploy" dichotomy is adequate: the sliding window principle described in the previous section shows how to interpolate between the these two "end points" to get the 3 platform triple for each bootstrapping stage. That means for any package a given package set, even those not bound on the top level but only reachable via dependencies or `buildPackages`, the three platforms will be defined as one of `localSystem` or `crossSystem`, with the former replacing the latter as one traverses build-time dependencies. A last simple difference is that `crossSystem` should be null when one doesn't want to cross-compile, while the `*Platform`s are always non-null. `localSystem` is always non-null.
 
 ## Discussion and Summary
 
