@@ -63,7 +63,45 @@ Dappspec takes the `@custom:...` natspec tag and provides a list of admonitions 
   It is recommended that Solidity contracts are fully annotated using NatSpec for all public interfaces (everything in the ABI).
   [docs.soliditylang.org/en/v0.8.6/style-guide.html?highlight=style%20guide#natspec](https://docs.soliditylang.org/en/v0.8.6/style-guide.html?highlight=style%20guide#natspec)
  
+### `natspec-documentation-admonition`.
+ Admonitions `(`Warning`/`Tip`/`Important`)`
+Using specific syntax inside block quote to indicate the following content is Note.
 
+<pre>
+> [!NOTE]
+> <note content>
+> [!WARNING]
+> <warning content>
+</pre>
+
+The above content will be transformed to the following html:
+
+```html
+<div class="NOTE">
+  <h5>NOTE</h5>
+  <p>note content</p>
+</div>
+<div class="WARNING">
+  <h5>WARNING</h5>
+  <p>WARNING content</p>
+</div>
+```
+
+Here are all the supported note types with the styling of the default theme applied:
+
+```
+[!NOTE] This is a note which needs your attention, but it's not super important.
+
+[!TIP] This is a note which needs your attention, but it's not super important.
+
+[!WARNING] This is a warning containing some important message.
+
+[!IMPORTANT] This is a warning containing some important message.
+
+[!CAUTION] This is a warning containing some important message.
+```
+
+<br>
  
 ### `natspec-documentation-internal`.
  
