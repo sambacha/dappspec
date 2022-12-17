@@ -1,11 +1,20 @@
 ---
 title: DAppSpec
-version: v2022.06.26, v2022.07.13, v2022.07.19, v2022.08.23
+version: v2022.06.26, v2022.07.13, v2022.07.19, v2022.08.23, 2022.12.17
 authors: <TBD>
 license: CC-SA-2.5
 ---
 
 # dappspec
+
+## tl:dr
+
+>
+> - use clear names to answer 'what'
+> - use clear statements to answer 'how'
+> - use comments to answer 'why'
+>
+> - Nikolai Mushegian
 
 ## Overview
 
