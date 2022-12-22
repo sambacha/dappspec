@@ -7,6 +7,9 @@ author: Sam Bacha
 
 # Accretive Versioning: an Automated compatibility scheme
 
+## Possible Shortcut 
+
+If only relative files and URLs were used when importing, the path defines the version. There is no need to list dependencies.
 
 ## Motivation
 
