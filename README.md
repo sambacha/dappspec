@@ -190,6 +190,15 @@ variable-color
 
 ## Examples
 
+## protected variable id for detector
+
+```solidity
+contract Internal {
+    /// @custom:security write-protection="onlyOwner()"
+    address owner;
+```
+
+
 ### `@custom:emit` 
 
 ```solidity
