@@ -1,3 +1,9 @@
+---
+title:
+abstract: 
+version: 2023.07.19
+tags: ['rules', 'natspec', 'style']
+---
 # Style Guide Ruleset for LanguageTool Rule Engine
 
 [Language Tool Rule Index](https://community.languagetool.org/rule/list?lang=en)
@@ -20,13 +26,29 @@ These are the errors that LanguageTool can detect that are relevant.
 
 ## Rule selection and usage
 
-These rules are handpicked to be relevant for accuracy and consistancy in numerical, accounting, and financial usage. 
+These rules are handpicked to be relevant for accuracy and consistancy in numerical, accounting, and financial usage.
 
-### Accrue
+## Rules not currently within Language Tool
+
+### Usage of Ergative' verbs
+
+In English these can be used both transitively and intransitively, i.e. intransitive verbs become causatives when used transitively.
+
+- sell
+- unload
+- upload
+- unzip
+- deactivate
+
+Ensure understanding and correct usage.
+
+## Rules
+
+### Example: Accrue
 
 [ACCRUE](https://community.languagetool.org/rule/show/ACCRUE?lang=en&subId=1)
 
-## Principles behind some of the selected rules
+### Principles behind some of the selected rules
 
 - [Commas in Dates](https://languagetool.org/insights/post/date-formats/#commas-in-dates)
 
