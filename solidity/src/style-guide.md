@@ -1,7 +1,7 @@
 ---
 title: Solidity Style Guide DAppSpec
 author: Et. Al.
-version: 2022.07.14
+version: 2025.04, 2022.07.14
 ---
 
 
@@ -12,6 +12,23 @@ version: 2022.07.14
   1. [Types](#types)
   2. [Megalitic comments](#Megalithic-comments)
 
+
+## General Comments
+
+```
+<!-- Based on the CSRG's KNF (Kernel Normal Form). -->
+
+ /*
+  * VERY important single-line comments look like	this.
+  */
+
+  /* Most single-line comments look like this. */
+
+  /*
+   * Multi-line comments look like	this.  Make them real sentences.  Fill
+   * them so they look like real paragraphs.
+   */
+```
 
 ## Explicit Types
 
